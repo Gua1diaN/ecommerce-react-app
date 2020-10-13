@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '../../components/Typography/Typography';
+import { Grid } from '@material-ui/core';
+import { Paper } from '@material-ui/core';
+import Overview from '../../components/Overview/Overview';
 
 const styles = (theme) => ({
   root: {
@@ -13,6 +16,11 @@ const styles = (theme) => ({
     display: 'grid',
     gridTemplateColumns: '640px 640px',
     gridGap: '10px'
+  },
+  container: {
+    '& > *': {
+      height: '100%'
+    }
   }
 });
 
@@ -29,6 +37,9 @@ function MyProfile(props) {
       </Typography>
       <div className={classes.images}>
          My Profile
+      </div>
+      <div>
+        <Overview />
       </div>
     </Container>
   );

@@ -6,6 +6,7 @@ import MyProfile from './views/MyProfile/MyProfile';
 import Zodiac from './views/Zodiac/Zodiac';
 import Setting from './views/Setting/Setting';
 import AppAppBar  from './views/AppAppBar/AppAppBar';
+import HomePage from './views/HomePage/HomePage';
 
 import NotFound from './views/NotFound/NotFound';
 
@@ -19,6 +20,7 @@ export default function App() {
       <AuthenticationManger>
       
       <Switch>
+      <Route exact path="/" component={HomePage} />
         <PrivateRoute exact permissions={['admin']}  path="/profile"  component={MyProfile} />
         <Route exact path="/zodiac" component={Zodiac} />
         <Route exact path="/signin"  component={SignIn} />

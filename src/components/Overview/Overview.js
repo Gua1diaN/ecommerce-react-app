@@ -25,9 +25,9 @@ const Overview = props => {
   const classes = useStyles();
 
   const data = {
-    income: '1000',
-    spend: '800',
-    profit: '200',
+    followers: '1000',
+    likes: '800',
+    posts: '200',
   };
 
   return (
@@ -52,10 +52,10 @@ const Overview = props => {
             gutterBottom
             variant="overline"
           >
-            Total Income
+            Followers
           </Typography>
           <div className={classes.valueContainer}>
-            <Typography variant="h3">${data.income}</Typography>
+            <Typography variant="h3">{data.followers}</Typography>
           </div>
         </Grid>
         <Grid
@@ -70,10 +70,10 @@ const Overview = props => {
             gutterBottom
             variant="overline"
           >
-            Total Income
+            POST
           </Typography>
           <div className={classes.valueContainer}>
-            <Typography variant="h3">${data.spend}</Typography>
+            <Typography variant="h3">{data.posts}</Typography>
           </div>
         </Grid>
         <Grid
@@ -88,10 +88,10 @@ const Overview = props => {
             gutterBottom
             variant="overline"
           >
-            Total Income
+            Likes
           </Typography>
           <div className={classes.valueContainer}>
-            <Typography variant="h3">${data.profit}</Typography>
+            <Typography variant="h3">{data.likes}</Typography>
           </div>
         </Grid>
        

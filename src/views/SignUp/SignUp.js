@@ -43,8 +43,8 @@ const deaultErrors = {
 function SignUp({authenticate, isAuthenticated}) {
   const classes = useStyles();
   const history = useHistory();
-  const location = useLocation();
-  const { from } = location.state || { from: { pathname: "/" } };
+  // const location = useLocation();
+  // const { from } = location.state || { from: { pathname: "/" } };
   const [values, setValues] = React.useState(deaultValues);
   const [errors, setErrors] = React.useState(deaultErrors);
   const [submitting, setSubmitting] = React.useState(false);
@@ -52,7 +52,17 @@ function SignUp({authenticate, isAuthenticated}) {
 
   const handleChange = ({target}) => {
     const {name, value} = target;
+    let currentValue = {
+      ...values,
+      [name]:value
+    }
+    const validationErrors = validate(currentValue);
+
+    if( Object.keys(validationErrors).length > 0) {
    
+      setErrors(validationErrors);
+
+    }
     setValues({
       ...values,
       [name]: value
@@ -187,6 +197,7 @@ function SignUp({authenticate, isAuthenticated}) {
                       {submitError}
                     </FormFeedback>}
               <FormButton
+              data-testid="submit-button"
                 className={classes.button}
                 disabled={submitting}
                 color="secondary"

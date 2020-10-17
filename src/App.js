@@ -7,6 +7,9 @@ import Zodiac from './views/Zodiac/Zodiac';
 import Setting from './views/Setting/Setting';
 import AppAppBar  from './views/AppAppBar/AppAppBar';
 import HomePage from './views/HomePage/HomePage';
+import { ThemeProvider } from '@material-ui/core/styles';
+import theme from './theme';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 import NotFound from './views/NotFound/NotFound';
 
@@ -15,23 +18,26 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 
 export default function App() {
   return (
-    <BrowserRouter>
-     <AppAppBar />
-      <AuthenticationManger>
-      
-      <Switch>
-      <Route exact path="/" component={HomePage} />
-        <PrivateRoute exact permissions={['admin']}  path="/profile"  component={MyProfile} />
-        <Route exact path="/zodiac" component={Zodiac} />
-        <Route exact path="/signin"  component={SignIn} />
-        <Route exact path="/signup"  component={SignUp} />
-        <Route exact path="/setting"  component={Setting} />
-        <Route path="/*"  component={NotFound} />
-      </Switch>
-   
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <BrowserRouter>
+      <AppAppBar />
+        <AuthenticationManger>
+        
+        <Switch>
+        <Route exact path="/" component={HomePage} />
+          <PrivateRoute exact permissions={['admin']}  path="/profile"  component={MyProfile} />
+          <Route exact path="/zodiac" component={Zodiac} />
+          <Route exact path="/signin"  component={SignIn} />
+          <Route exact path="/signup"  component={SignUp} />
+          <Route exact path="/setting"  component={Setting} />
+          <Route path="/*"  component={NotFound} />
+        </Switch>
+    
 
-      </AuthenticationManger>
+        </AuthenticationManger>
 
-    </BrowserRouter>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
